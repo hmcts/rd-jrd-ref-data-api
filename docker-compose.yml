@@ -31,14 +31,14 @@ services:
     ports:
       - ${SERVER_PORT:-8090}:${SERVER_PORT:-8090}
     depends_on:
-      - rd-sys-ref-data-db
+      - rd-jrd-ref-data-db
 
   rd-sys-ref-data-db:
     build:
       context: database
-    image: hmcts/rd-sys-ref-data-db
-    container_name: rd-sys-ref-data-db
+    image: hmcts/rd-jrd-ref-data-db
+    container_name: rd-jrd-ref-data-db
     environment:
-      - POSTGRES_PASSWORD="${POSTGRES_PASSWORD:-rd_sys_ref_data}"
+      - POSTGRES_PASSWORD="${POSTGRES_PASSWORD:-rd_jrd_ref_data}"
     ports:
       - 5428:5432

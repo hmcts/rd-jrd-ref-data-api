@@ -37,8 +37,8 @@ def versions = [
     springfoxSwagger: '2.9.2'
 ]
 
-mainClassName = 'uk.gov.hmcts.reform.sysrefdataapi.Application'
-def jarName = 'rd-sys-ref-data-api.jar'
+mainClassName = 'uk.gov.hmcts.reform.jrdrefdataapi.Application'
+def jarName = 'rd-jrd-ref-data-api.jar'
 
 group = 'uk.gov.hmcts.reform'
 version = '0.0.1'
@@ -139,10 +139,10 @@ jacocoTestReport {
 }
 
 pitest {
-    targetClasses = ['uk.gov.hmcts.reform.sysrefdataapi.*']
+    targetClasses = ['uk.gov.hmcts.reform.jrdrefdataapi.*']
     excludedClasses = [
-        'uk.gov.hmcts.reform.sysrefdataapi.infrastructure.config.*',
-        'uk.gov.hmcts.reform.sysrefdataapi.Application'
+        'uk.gov.hmcts.reform.jrdrefdataapi.infrastructure.config.*',
+        'uk.gov.hmcts.reform.jrdrefdataapi.Application'
     ]
     threads = 10
     outputFormats = ['XML', 'HTML']
@@ -155,14 +155,14 @@ project.tasks['pitest'].group = "Verification"
 sonarqube {
     properties {
         property "sonar.projectName", "RD :: System Reference Data api"
-        property "sonar.projectKey", "RDSYSREFDATAAPI"
+        property "sonar.projectKey", "RDJRDREFDATAAPI"
         property "sonar.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"
         property "sonar.jacoco.itReportPath", "${project.buildDir}/jacoco/integration.exec"
         property "sonar.pitest.mode", "reuseReport"
         property "sonar.pitest.reportsDirectory", "build/reports/pitest"
-        property "sonar.exclusions", "src/main/java/uk/gov/hmcts/reform/sysrefdataapi/infrastructure/config/**," +
-                                     "src/main/java/uk/gov/hmcts/reform/sysrefdataapi/infrastructure/SystemDateProvider.java," +
-                                     "src/main/java/uk/gov/hmcts/reform/sysrefdataapi/Application.java"
+        property "sonar.exclusions", "src/main/java/uk/gov/hmcts/reform/jrdrefdataapi/infrastructure/config/**," +
+                                     "src/main/java/uk/gov/hmcts/reform/jrdrefdataapi/infrastructure/SystemDateProvider.java," +
+                                     "src/main/java/uk/gov/hmcts/reform/jrdrefdataapi/Application.java"
     }
 }
 
@@ -294,9 +294,9 @@ applicationDefaultJvmArgs = ["-Dfile.encoding=UTF-8"]
 
 def dbHost = System.env.JOB_SCHEDULER_DB_HOST ?: "localhost"
 def dbPort = System.env.JOB_SCHEDULER_DB_PORT ?: 5428
-def dbName = System.env.JOB_SCHEDULER_DB_NAME ?: "rd_sys_ref_data"
-def dbUser = System.env.JOB_SCHEDULER_DB_USERNAME ?: "rd_sys_ref_data"
-def dbPass = System.env.JOB_SCHEDULER_DB_PASSWORD ?: "rd_sys_ref_data"
+def dbName = System.env.JOB_SCHEDULER_DB_NAME ?: "rd_jrd_ref_data"
+def dbUser = System.env.JOB_SCHEDULER_DB_USERNAME ?: "rd_jrd_ref_data"
+def dbPass = System.env.JOB_SCHEDULER_DB_PASSWORD ?: "rd_jrd_ref_data"
 
 flyway {
     url = 'jdbc:postgresql://' + dbHost + ':' + dbPort + '/' + dbName

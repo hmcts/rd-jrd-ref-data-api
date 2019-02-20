@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 print_help() {
-  echo "Script to run docker container for System Reference Data API
+  echo "Script to run docker container for Judicial Reference Data API
 
   Usage:
 

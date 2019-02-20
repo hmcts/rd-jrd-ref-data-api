@@ -1,6 +1,6 @@
 #!groovy
 properties([
-    [$class: 'GithubProjectProperty', projectUrlStr: 'https://github.com/hmcts/rd-sys-ref-data-api.git'],
+    [$class: 'GithubProjectProperty', projectUrlStr: 'https://github.com/hmcts/rd-jrd-ref-data-api.git'],
     pipelineTriggers([[$class: 'GitHubPushTrigger']])
 ])
 

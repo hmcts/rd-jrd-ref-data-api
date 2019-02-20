@@ -85,7 +85,7 @@ data "azurerm_key_vault_secret" "postgres_password" {
 }
 
 
-module "db-sys-ref-data" {
+module "db-jrd-ref-data" {
   source = "git@github.com:hmcts/cnp-module-postgres?ref=master"
   product = "${var.product}-${var.component}-postgres-db"
   location = "${var.location}"
@@ -97,7 +97,7 @@ module "db-sys-ref-data" {
 
 }
 
-module "rd_system_data_api" {
+module "rd_jrd_data_api" {
   source = "git@github.com:hmcts/cnp-module-webapp?ref=master"
   product = "${var.product}-${var.component}"
   location = "${var.location}"
@@ -117,10 +117,10 @@ module "rd_system_data_api" {
     LOGBACK_REQUIRE_ERROR_CODE = false
 
     app_settings = {
-      POSTGRES_HOST = "${module.db-sys-ref-data.host_name}"
-      POSTGRES_PORT = "${module.db-sys-ref-data.postgresql_listen_port}"
-      POSTGRES_DATABASE = "${module.db-sys-ref-data.postgresql_database}"
-      POSTGRES_USER = "${module.db-sys-ref-data.user_name}"
+      POSTGRES_HOST = "${module.db-jrd-ref-data.host_name}"
+      POSTGRES_PORT = "${module.db-jrd-ref-data.postgresql_listen_port}"
+      POSTGRES_DATABASE = "${module.db-jrd-ref-data.postgresql_database}"
+      POSTGRES_USER = "${module.db-jrd-ref-data.user_name}"
       POSTGRES_USERNAME = "${data.azurerm_key_vault_secret.postgres_username.value}"
       POSTGRES_PASSWORD = "${data.azurerm_key_vault_secret.postgres_password.value}"
 

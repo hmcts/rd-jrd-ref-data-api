@@ -1,10 +1,10 @@
-# rd-sys-ref-data-api
+# rd-jrd-ref-data-api
 
-System Reference Data API
+Judicial Reference Data API
 
 ## Purpose
 
-Provides system reference data to client applications.  Implemented as a Java/SpringBoot application.
+Provides judicial reference data to client applications.  Implemented as a Java/SpringBoot application.
 
 ### Prerequisites
 
@@ -38,7 +38,7 @@ Alternatively, you can start the application from the current source files using
 If required, to run with a low memory consumption, the following can be used:
 
 ```
-./gradlew --no-daemon assemble && java -Xmx384m -jar build/libs/rd-sys-ref-data-api.jar
+./gradlew --no-daemon assemble && java -Xmx384m -jar build/libs/rd-jrd-ref-data-api.jar
 ```
 
 ### Using the application

@@ -9,7 +9,7 @@ properties([
 
 def type = "java"
 def product = "rd"
-def component = "sys-ref-data-api"
+def component = "jrd-ref-data-api"
 
 List<LinkedHashMap<String, Object>> secrets = [
 

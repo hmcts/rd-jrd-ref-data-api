@@ -38,11 +38,11 @@ variable "instance_size" {
 }
 
 variable "postgresql_user" {
-  default = "rd_sys_ref_data"
+  default = "rd_jrd_ref_data"
 }
 
 variable "database_name" {
-  default = "rd_sys_ref_data"
+  default = "rd_jrd_ref_data"
 }
 
 variable "appinsights_instrumentation_key" {
